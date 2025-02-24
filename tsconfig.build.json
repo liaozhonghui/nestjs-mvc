@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "src/**/*",
+  ],
+  "exclude": [
+    "node_modules",
+    "node_modules/**/*",
+    "test",
+    "dist",
+    "snippets",
+    "database",
+    "**/*spec.ts"
+  ],
+  "compilerOptions": {
+    "sourceMap": true
+  }
+}
