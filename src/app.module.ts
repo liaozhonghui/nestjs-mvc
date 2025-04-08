@@ -12,6 +12,7 @@ import { HttpModule } from '@nestjs/axios';
 import { RedisModule } from '@liaoliaots/nestjs-redis';
 import { ResponseMiddleware } from './common/middleware/response.middleware';
 import { IpMiddleware } from './common/middleware/ip.middleware';
+import { MyModule } from './my/my.module';
 
 const configFileName = {
   local: 'config.local',
@@ -75,6 +76,7 @@ const configFileName = {
     }),
     AuthModule,
     UserModule,
+    MyModule,
   ],
   controllers: [AppController],
   providers: [AppService],

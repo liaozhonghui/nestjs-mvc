@@ -63,7 +63,7 @@ export class UserService {
         where: { id: Equal(createRes.id) },
       });
     } else {
-      Object.assign(inst, body);
+      Object.assign(inst, body, updateProps);
       await this.userModel.save(inst);
       inst = await this.userModel.findOne({
         where: { id: Equal(inst.id) },
@@ -177,10 +177,10 @@ export class UserService {
       throw new CustomError(500, `用户id对应的user_id不存在:${user_id}`);
     }
     const res = Number(inst.time_zone ?? 0) || 0;
-    if (res > 12) {
+    if (res > 16) {
       throw new CustomError(
         634,
-        `该用户时区偏移应该是-12 ~ +12, 当前存储是：${inst.time_zone}`,
+        `该用户时区偏移应该是-14 ~ +12, 当前存储是：${inst.time_zone}`,
       );
     }
     return res;
