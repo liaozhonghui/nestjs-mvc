@@ -12,6 +12,7 @@ services:
     ports:
       - '5432:5432'
     volumes:
+      - ./database/docker:/docker-entrypoint-initdb.d # 挂载 init.sql 文件
       - postgres_data:/var/lib/postgresql/data
 
   redis:
@@ -26,6 +27,7 @@ services:
     volumes:
       - redis_data:/data
 
+# you need to mkdir before docker-compose `mkdir -p ./.data/pg && mkdir -p ./.data/redis`
 volumes:
   postgres_data:
     driver: local
